@@ -1,0 +1,7 @@
+package-as: EverlookDBAuctions_Shared
+
+ignore:
+  - README.md
+  - .github
+  - Media/logo.svg
+  - Media/logo.png

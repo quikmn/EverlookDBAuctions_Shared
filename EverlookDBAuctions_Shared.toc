@@ -1,0 +1,11 @@
+## Interface: 16001
+## Title: EverlookDB Auctions: Price Feed
+## Notes: Other players' newest auction scans from everlookdb.com, for EverlookDB Auctions. The EverlookDB App fills it; it refreshes at /reload or login.
+## Author: quikmn
+## Version: v0.1.0
+## Dependencies: EverlookDBAuctions
+## IconTexture: Interface\AddOns\EverlookDBAuctions_Shared\Media\icon
+## X-License: GPL-3.0
+## LoadOnDemand: 0
+
+Shared.lua

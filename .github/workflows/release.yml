@@ -1,0 +1,45 @@
+# Push a tag like v1.0.0 and this builds EverlookDBAuctions_Shared-v1.0.0-forever.zip and a GitHub release, plus a copy
+# named EverlookDBAuctions_Shared.zip so .../releases/latest/download/EverlookDBAuctions_Shared.zip always gets the newest.
+# The same zip goes to CurseForge.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: BigWigsMods/packager@v2
+        env:
+          GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+      - name: Same zip under a fixed name (direct download link on everlookdb.com)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cp .release/EverlookDBAuctions_Shared-${GITHUB_REF_NAME}-forever.zip .release/EverlookDBAuctions_Shared.zip
+          gh release upload "$GITHUB_REF_NAME" .release/EverlookDBAuctions_Shared.zip --clobber
+      - name: Release notes from CHANGELOG.md (GitHub release page)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          bash .github/release-notes.sh "$GITHUB_REF_NAME" > .release/notes.md
+          gh release edit "$GITHUB_REF_NAME" --notes-file .release/notes.md
+      # TODO: the CurseForge project id. Create the project on CurseForge, then put its id in CF_PROJECT below.
+      - name: Upload to CurseForge (WoW Forever)
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+          CF_PROJECT: TODO_CURSEFORGE_PROJECT_ID
+        run: |
+          if [ "$CF_PROJECT" = "TODO_CURSEFORGE_PROJECT_ID" ]; then
+            echo "::warning::No CurseForge project id yet (CF_PROJECT in release.yml): not uploading to CurseForge."
+            exit 0
+          fi
+          bash .github/curseforge-upload.sh "$CF_PROJECT" .release/EverlookDBAuctions_Shared-${GITHUB_REF_NAME}-forever.zip EverlookDBAuctions_Shared.toc
