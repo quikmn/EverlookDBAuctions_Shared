@@ -32,14 +32,7 @@ jobs:
         run: |
           bash .github/release-notes.sh "$GITHUB_REF_NAME" > .release/notes.md
           gh release edit "$GITHUB_REF_NAME" --notes-file .release/notes.md
-      # TODO: the CurseForge project id. Create the project on CurseForge, then put its id in CF_PROJECT below.
-      - name: Upload to CurseForge (WoW Forever)
+      - name: Upload to CurseForge (project 1821126, WoW Forever)
         env:
           CF_API_KEY: ${{ secrets.CF_API_KEY }}
-          CF_PROJECT: TODO_CURSEFORGE_PROJECT_ID
-        run: |
-          if [ "$CF_PROJECT" = "TODO_CURSEFORGE_PROJECT_ID" ]; then
-            echo "::warning::No CurseForge project id yet (CF_PROJECT in release.yml): not uploading to CurseForge."
-            exit 0
-          fi
-          bash .github/curseforge-upload.sh "$CF_PROJECT" .release/EverlookDBAuctions_Shared-${GITHUB_REF_NAME}-forever.zip EverlookDBAuctions_Shared.toc
+        run: bash .github/curseforge-upload.sh 1821126 .release/EverlookDBAuctions_Shared-${GITHUB_REF_NAME}-forever.zip EverlookDBAuctions_Shared.toc
