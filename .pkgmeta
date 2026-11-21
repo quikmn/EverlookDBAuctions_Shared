@@ -3,5 +3,7 @@ package-as: EverlookDBAuctions_Shared
 ignore:
   - README.md
   - .github
+  - .gitignore
+  - screenshots
   - Media/logo.svg
-  - Media/logo.png  - screenshots
+  - Media/logo.png
