@@ -1,0 +1,13 @@
+{
+  "projectId": 1821126,
+  "name": "EverlookDB Auctions: Price Feed",
+  "releaseType": "release",
+  "relations": [
+    {
+      "slug": "everlookdbauctions",
+      "type": "requiredDependency"
+    }
+  ],
+  "screenshots": "screenshots",
+  "syncOnRelease": false
+}

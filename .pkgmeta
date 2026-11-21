@@ -7,3 +7,4 @@ ignore:
   - screenshots
   - Media/logo.svg
   - Media/logo.png
+  - curseforge
