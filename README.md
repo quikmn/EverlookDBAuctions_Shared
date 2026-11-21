@@ -3,9 +3,9 @@
 Other players' newest auction scans from [everlookdb.com](https://everlookdb.com), for
 [EverlookDB Auctions](https://github.com/quikmn/EverlookDBAuctions) in WoW Forever.
 
-This addon ships empty. The [EverlookDB App](https://github.com/quikmn/everlookdb-uploader) fills it: every 15 minutes,
-and right after it uploads your own scans, it fetches the newest scan anyone uploaded for the auction houses you play on
-and writes it into this folder. EverlookDB Auctions reads it at your next `/reload` or login, so prices are fresh even
+This addon ships empty. The [EverlookDB App](https://github.com/quikmn/everlookdb-uploader) fills it: it checks once a minute,
+and right after it uploads your own scans, for a newer scan of the auction houses you play on, and when someone uploaded
+one it fetches it and writes it into this folder (so a new scan is here within about a minute). EverlookDB Auctions reads it at your next `/reload` or login, so prices are fresh even
 when you haven't been to the auction house for days. Such prices always say so: "other players' scan · 12 min ago".
 
 - Needs EverlookDB Auctions (it shows under it in the addon list and never loads without it).
