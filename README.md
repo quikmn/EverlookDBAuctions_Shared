@@ -1,23 +1,18 @@
 # EverlookDB Auctions: Price Feed
 
-Other players' newest auction scans from [everlookdb.com](https://everlookdb.com), for
+Other players' newest auction prices from [everlookdb.com](https://everlookdb.com), for
 [EverlookDB Auctions](https://github.com/quikmn/EverlookDBAuctions) in WoW Forever.
 
-This addon ships empty. The [EverlookDB App](https://github.com/quikmn/everlookdb-uploader) fills it: it checks once a minute,
-and right after it uploads your own scans, for a newer scan of the auction houses you play on, and when someone uploaded
-one it fetches it and writes it into this folder (so a new scan is here within about a minute). EverlookDB Auctions reads it at your next `/reload` or login, so prices are fresh even
-when you haven't been to the auction house for days. Such prices always say so: "other players' scan · 12 min ago".
+This addon ships empty. The free [EverlookDB App](https://github.com/quikmn/everlookdb-uploader) keeps it filled with the
+newest prices players uploaded for the auction houses you play on. EverlookDB Auctions picks them up at your next
+`/reload` or login, so prices are fresh even when you haven't been to the auction house for days. Such prices always
+say so: "other players' scan · 12 min ago".
 
-- Needs EverlookDB Auctions (it shows under it in the addon list and never loads without it).
+- Needs EverlookDB Auctions (it shows under it in the addon list).
 - Without the app it stays empty, and EverlookDB Auctions says "Price Feed: no data yet".
-- The app writes only `Shared.lua`, the `.toc` and one `.lua` file per auction house in this folder, never anything
-  else. When CurseForge updates this addon (which brings back the empty copy), the app writes its data again within
-  about a minute.
+- After an addon update the app fills it again within about a minute.
 - The data has no player names.
 - Turn it off in the app (the Price Feed switch), or in game on the General page of `/eah`.
-
-Like TradeSkillMaster's AppHelper, it is a CurseForge addon so it installs and updates like any other; the data comes
-from the app.
 
 ## License
 
