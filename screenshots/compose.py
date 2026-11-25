@@ -43,6 +43,6 @@ def place(ims, out, gap=70, maxw=1760, maxh=980, shadows=True, up=1.0):
 # the bottom of the auction house window: its status bar, the Price Feed's line under the bar's own
 BAR = (14, 1078, 1612, 1141)
 place([raw("price-feed-bar", crop=BAR, key=False)], "1-price-feed-bar.png", up=1.1)
-place([raw("price-feed-tooltip", crop=(32, 32, 892, 240), key=False)], "2-price-feed-tooltip.png", up=1.4)
+place([raw("price-feed-tooltip", crop=(34, 34, 476, 267), key=False)], "2-price-feed-tooltip.png", up=2.2)   # the tooltip alone
 place([raw("price-feed-options", key=False)], "3-price-feed-settings.png")
 place([raw("price-feed-empty", crop=BAR, key=False)], "4-price-feed-no-data.png", up=1.1)
